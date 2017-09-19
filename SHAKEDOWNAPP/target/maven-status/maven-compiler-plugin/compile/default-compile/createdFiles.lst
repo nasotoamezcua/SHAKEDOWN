@@ -1,0 +1,10 @@
+com\shakedown\dto\ZonasDTO.class
+com\shakedown\service\api\ReporteService.class
+com\shakedown\web\controller\EventosController.class
+com\shakedown\service\api\GenericService.class
+com\shakedown\service\api\ServiceException.class
+com\shakedown\service\assembler\ReporteAssembler.class
+com\shakedown\service\api\impl\ReporteServiceImpl.class
+com\shakedown\dto\ReporteDTO.class
+com\shakedown\service\api\impl\GenericServiceImpl.class
+com\shakedown\service\assembler\Assembler.class
