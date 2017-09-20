@@ -8,9 +8,10 @@
     <constant name="struts.convention.action.package" 
     	value="com.shakedown.action"/>
 
+	<!-- 
     <include file="example.xml"/>
 
-	<!--  
+	 
     <package name="default" namespace="/" extends="struts-default">
 
         <default-action-ref name="index"/>
