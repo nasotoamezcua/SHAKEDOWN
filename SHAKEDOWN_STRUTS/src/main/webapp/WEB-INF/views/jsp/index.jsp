@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,16 +12,16 @@
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 	
-	<c:forEach begin="1" end="3" varStatus="js">
+	<s:iterator begin="1" end="3" var="ijs" status="js">
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$('#idTable${js.count}').DataTable({
+				$('#idTable<s:property value="#js.count"/>').DataTable({
 					"aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
 			        "iDisplayLength": 5
 				});
 			} );
 		</script>
-	</c:forEach>
+	</s:iterator>
 	
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -35,61 +34,55 @@
 			<h1>Shakedown ::: Eventos</h1>
 			<p>These are the users currently in the system.</p>
 		</div>
-		<c:choose>
-			<c:when test="${not empty listaReportesDTO}">
-				<c:forEach items="${listaReportesDTO}" var="listaDTO" varStatus="tab">
-					<c:choose>
-						<c:when test="${tab.count eq 1}">
-							<c:set var="fondoRuta" value="success"/>
-						</c:when>
-						<c:when test="${tab.count eq 2}">
-							<c:set var="fondoRuta" value="info"/>
-						</c:when>
-						<c:otherwise>
-							<c:set var="fondoRuta" value="warning"/>
-						</c:otherwise>
-					</c:choose>
-					<div class="table-responsive">
-						<table id="idTable${tab.count}" class="table table-condensed table-hover table-striped">
-							<thead>
-								<tr class="${fondoRuta}">
-									<td colspan="3" align="center">
-										<b>Zona ${tab.count}</b>
-									</td>
-								</tr>
-								<tr>
-									<th>#</th>
-									<th>Nombre</th>
-									<th>Fecha</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:choose>
-									<c:when test="${not empty listaDTO}">
-										<c:forEach items="${listaDTO}" var="zona" varStatus="z" >
-											<tr>
-												<td>${z.count}</td>
-												<td>${zona.nombre}</td>
-												<td>
-													<fmt:formatDate value="${zona.fecha}" type="date" dateStyle="short"/>
-												</td>
-											</tr>
-										</c:forEach>
-									</c:when>
-									<c:otherwise>
-											<tr>
-												<td colspan="3" align="center"><b>No existen rutas</b></td>
-											</tr>
-									</c:otherwise>
-								</c:choose>
-							</tbody>
-						</table>
-						<hr>
-					</div>
-				</c:forEach>
-			</c:when>
-		</c:choose>
-		</div>
+		<s:if test="%{listaReportesDTO != null}">
+			<s:iterator var="listaDTO" value="listaReportesDTO" status="tab">
+			
+				<s:if test="%{#tab.count == 1}">
+					<s:set var="fondoRuta">success</s:set>
+				</s:if>
+				<s:elseif test="%{#tab.count == 2}">
+					<s:set var="fondoRuta">info</s:set>
+				</s:elseif>
+				<s:else>
+					<s:set var="fondoRuta">warning</s:set>
+				</s:else>
+				
+				<div class="table-responsive">
+					<table id="idTable<s:property value='#tab.count'/>" class="table table-condensed table-hover table-striped">
+						<thead>
+							<tr class="<s:property value='#fondoRuta'/>">
+								<td colspan="3" align="center">
+									<b>Zona <s:property value="#tab.count"/></b>
+								</td>
+							</tr>
+							<tr>
+								<th>#</th>
+								<th>Nombre</th>
+								<th>Fecha</th>
+							</tr>
+						</thead>
+						<tbody>
+							<s:if test="%{#listaDTO != null}">
+								<s:iterator value="#listaDTO" var="zona" status="z">
+									<tr>
+										<td><s:property value="#z.count" /></td>
+										<td><s:property value="#zona.nombre" /></td>
+										<td><s:date name="#zona.fecha" format="dd/MM/yyyy"/></td>
+									</tr>
+								<s:else>
+									<tr>
+										<td colspan="3" align="center"><b>No existen rutas</b></td>
+									</tr>
+								</s:else>
+								</s:iterator>
+							</s:if>
+						</tbody>
+					</table>
+				</div>
+				
+			</s:iterator>
+		</s:if>
+	</div>
 	
 	<jsp:include page="footer.jsp"/>
 
