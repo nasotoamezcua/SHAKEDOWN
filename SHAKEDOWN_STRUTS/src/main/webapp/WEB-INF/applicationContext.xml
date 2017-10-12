@@ -11,6 +11,6 @@
 
 	<context:component-scan base-package="com.shakedown.business.*" />
 	<import resource="classpath:data-applicationContext.xml" />
-	<!--  <import resource="application-security.xml" /> -->
+	<import resource="application-security.xml" />
 
 </beans>

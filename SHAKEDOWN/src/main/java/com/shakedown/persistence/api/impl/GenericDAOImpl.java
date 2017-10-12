@@ -5,6 +5,8 @@ import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 
+//import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -23,7 +25,7 @@ import com.shakedown.persistence.api.PersistenceException;
  * @since Build 1.0
  */
 
-
+//@Transactional
 public class GenericDAOImpl<T, PK extends Serializable> implements GenericDAO<T, PK> {
 
 	@Autowired

@@ -22,7 +22,13 @@ public class EventosController {
 	@Autowired
 	private ReporteService reportService;
 	
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+	@RequestMapping(method = RequestMethod.GET, value = "/")
+	public String home(Map<String, Object> model) {
+		log.info("home");
+		return "home";
+	}
+	
+    @RequestMapping(method = RequestMethod.GET, value = "/eventos")
 	public String requestIndex(Map<String, Object> model) {
     	log.info("requestIndex");
     	

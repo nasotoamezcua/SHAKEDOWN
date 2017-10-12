@@ -7,11 +7,10 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.shakedown.dto.ReporteDTO;
-import com.shakedown.service.api.ReporteService;
+import com.shakedown.dto.ReportBenchDriveDTO;
+import com.shakedown.service.api.ReportBenchDriveService;
 import com.shakedown.service.api.ServiceException;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Namespace solo se declara a nivel de clase.
 */
 @Slf4j
-@Component("eventosActionBean")
+//@Component("eventosActionBean")
 @Namespace(value = "/eventos")
 @Action(value = "eventosAction", 
 	results = {@Result(name = "success", location = "/WEB-INF/views/jsp/index.jsp")
@@ -28,11 +27,13 @@ import lombok.extern.slf4j.Slf4j;
 public class EventosAction extends ActionSupport {
 	
 	private static final long serialVersionUID = 1L;
-
-	@Autowired
-	private ReporteService reportService;
 	
-	private List<ArrayList<ReporteDTO>> listaReportesDTO;
+	@Autowired
+	private ReportBenchDriveService reportService;
+	
+	private List<ArrayList<ReportBenchDriveDTO>> listaReportesDTO;
+	
+	
 	
 	@Override
 	/* 	 
@@ -42,14 +43,17 @@ public class EventosAction extends ActionSupport {
 		results = {@Result(name = "success", location = "/WEB-INF/views/jsp/index.jsp")
 		})
 	*/
-	public String execute() { 
+	public String execute() {
 		
-		listaReportesDTO = new ArrayList<ArrayList<ReporteDTO>>();
+		log.info("Action: eventosAction");
 		
-		for(int i=1;i<=3;i++) {
+		listaReportesDTO = new ArrayList<ArrayList<ReportBenchDriveDTO>>();
+		
+		for(int i=1;i<=2;i++) {
+			String valor = (i==1)?"BM":"DT";
 			try {
-					List<ReporteDTO> lisReports = reportService.listReportsServiceIdZona(i);
-					listaReportesDTO.add((ArrayList<ReporteDTO>) lisReports);
+					List<ReportBenchDriveDTO> lisReports = reportService.lisReportBenchDriveFindAllService(valor);
+					listaReportesDTO.add((ArrayList<ReportBenchDriveDTO>) lisReports);
 			}catch (ServiceException e) {
 				log.error(e.getMessage(), e);
 			}
@@ -58,7 +62,8 @@ public class EventosAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public List<ArrayList<ReporteDTO>> getListaReportesDTO() {
+	public List<ArrayList<ReportBenchDriveDTO>> getListaReportesDTO() {
 		return listaReportesDTO;
 	}
+	
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,13 +21,29 @@
 			<p>These are the users currently in the system.</p>
 		</div>
 		
+		
 		<c:choose>
 			<c:when test="${not empty listaReportesDTO}">
 				<c:forEach items="${listaReportesDTO}" var="listaDTO" varStatus="tab">
+					<c:choose>
+						<c:when test="${tab.count eq 1}">
+							<c:set var="fondoRuta" value="success"/>
+						</c:when>
+						<c:when test="${tab.count eq 2}">
+							<c:set var="fondoRuta" value="info"/>
+						</c:when>
+						<c:otherwise>
+							<c:set var="fondoRuta" value="warning"/>
+						</c:otherwise>
+					</c:choose>
 					<div class="table-responsive">
 						<table class="table table-condensed table-hover">
 							<thead>
-								<tr><th>Zona ${tab.count}</th></tr>
+								<tr class="${fondoRuta}">
+									<td colspan="3" align="center">
+										<b>Zona ${tab.count}</b>
+									</td>
+								</tr>
 								<tr>
 									<th>#</th>
 									<th>Nombre</th>
@@ -40,7 +57,9 @@
 											<tr>
 												<td>${z.count}</td>
 												<td>${zona.nombre}</td>
-												<td>${zona.fecha }</td>
+												<td>
+													<fmt:formatDate value="${zona.fecha}" type="date" dateStyle="short"/>
+												</td>
 											</tr>
 										</c:forEach>
 									</c:when>
@@ -52,11 +71,12 @@
 								</c:choose>
 							</tbody>
 						</table>
-				</div>
+					</div>
 				</c:forEach>
 			</c:when>
 		</c:choose>
-	</div>
+		</div>
+	
 	<jsp:include page="footer.jsp"/>
 
 </body>

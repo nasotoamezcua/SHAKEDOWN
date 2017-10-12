@@ -7,6 +7,7 @@
   - of how to break up the configuration file into multiple files.
 -->
 <struts>
+	<!--
     <package name="eventos" namespace="/eventos" extends="struts-default">
 
         <default-action-ref name="eventosAction" />
@@ -15,7 +16,8 @@
             <result>/WEB-INF/views/jsp/index.jsp</result>
         </action>
 
-        <!-- Add additional "example" package actions here. -->
+        Add additional "example" package actions here. 
 
     </package>
+    -->
 </struts>

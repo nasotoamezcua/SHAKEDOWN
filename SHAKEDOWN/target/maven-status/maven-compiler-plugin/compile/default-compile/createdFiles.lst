@@ -1,7 +1,12 @@
+com\shakedown\entitys\RutaGoogle.class
+com\shakedown\entitys\Report_Bench_Drive.class
 com\shakedown\persistence\api\GenericDAO.class
 com\shakedown\persistence\api\impl\GenericDAOImpl.class
+com\shakedown\persistence\api\Report_Bench_DriveDAO.class
+com\shakedown\entitys\Eventos.class
 com\shakedown\entitys\Zonas.class
 com\shakedown\persistence\api\PersistenceException.class
 com\shakedown\persistence\api\ReporteDAO.class
 com\shakedown\entitys\Reporte.class
+com\shakedown\persistence\api\impl\Report_Bench_DriveDAOImpl.class
 com\shakedown\persistence\api\impl\ReporteDAOImpl.class

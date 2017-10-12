@@ -23,7 +23,7 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<!-- Spring security 
+	<!-- Spring security  -->
 	
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
@@ -33,7 +33,6 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	-->
 	
 	<!-- For root context -->
 	<listener>
@@ -44,11 +43,14 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/applicationContext*.xml</param-value>
 	</context-param>
-	<!-- 
+	
 	<error-page>
 		<error-code>403</error-code>
-		<location>/403.html</location>
+		<location>/WEB-INF/views/jsp/login/403.jsp?error=403</location>
 	</error-page>
-	-->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/views/jsp/login/403.jsp?error=404</location>
+	</error-page>
 	
 </web-app>
