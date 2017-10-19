@@ -19,8 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 public class Report_Bench_DriveDAOImpl extends GenericDAOImpl<Report_Bench_Drive, Integer>
 		implements Report_Bench_DriveDAO {
 	
-
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Report_Bench_Drive> lisReportBenchDriveFindAll(String tipo) throws PersistenceException {
@@ -30,7 +28,7 @@ public class Report_Bench_DriveDAOImpl extends GenericDAOImpl<Report_Bench_Drive
 		
 		try {
 			//Utilizando dos tablas con criteria y con campos no llave (idEventos.status)
-			//Cuando son campos llave no se senecita crear la sentencia "c.createCriteria"
+			//Cuando son campos llave no se necita crear la sentencia "c.createCriteria"
 			
 			/*
 			Criteria c = getSessionFactory().getCurrentSession().createCriteria(Report_Bench_Drive.class);
@@ -41,12 +39,16 @@ public class Report_Bench_DriveDAOImpl extends GenericDAOImpl<Report_Bench_Drive
 			*/
 			
 			//Utilizando HQL
+			
 			String hql = 	"	select distinct bd from Report_Bench_Drive bd " +
 							"		join fetch bd.idEventos e " +
 							"	where bd.tipo = :tipo " +
 							"	and bd.status = 'A' " +
-							"	and e.status = 'A' " +
+							"	and e.status = 'A' " + 
 							"	order by bd.semana desc ";
+			
+			
+			
 			
 			Query q = getSessionFactory().getCurrentSession().createQuery(hql);
 			q.setParameter("tipo", tipo);

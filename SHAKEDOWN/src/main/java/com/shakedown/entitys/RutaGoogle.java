@@ -36,5 +36,11 @@ public class RutaGoogle {
 	private @Getter @Setter String status;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "idFileEvento")
 	private @Getter @Setter Set<Report_Bench_Drive> fileEventos = new HashSet<Report_Bench_Drive>();
+	
+	public void addFieleEventos(Report_Bench_Drive reportBenchDrive) {
+		this.fileEventos.add(reportBenchDrive);
+		reportBenchDrive.setIdFileEvento(this);
+		
+	}
 
 }

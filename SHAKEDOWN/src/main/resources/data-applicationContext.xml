@@ -52,10 +52,4 @@
         	<property name="sessionFactory" ref="sessionFactory"></property>
         </bean>
         
-        <!--  SE COMENTA POR QUE SE UTILIZAN ANOTACIONES
-        <bean id="catalogoDAOImpl" class="net.tecgurus.main.persistence.impl.CatalogoDAOImpl">
-        	<property name="sessionFactory" ref="sessionFactory"/>
-        </bean>
-        -->
-        
 </beans>

@@ -4,14 +4,11 @@ com\shakedown\login\LogerUserSpring.class
 com\shakedown\service\api\impl\GenericServiceImpl.class
 com\shakedown\service\assembler\Assembler.class
 com\shakedown\dto\ZonasDTO.class
-com\shakedown\service\api\ReporteService.class
 com\shakedown\service\api\GenericService.class
 com\shakedown\service\api\ServiceException.class
 com\shakedown\action\LoginAction.class
 com\shakedown\action\ReportsAction.class
 com\shakedown\service\assembler\ReportBenchDriveAssembler.class
-com\shakedown\service\assembler\ReporteAssembler.class
 com\shakedown\service\api\ReportBenchDriveService.class
 com\shakedown\service\api\impl\ReportBenchDriveServiceImpl.class
-com\shakedown\service\api\impl\ReporteServiceImpl.class
 com\shakedown\dto\ReporteDTO.class

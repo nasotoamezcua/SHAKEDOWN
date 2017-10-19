@@ -54,7 +54,7 @@
 							<table id="idTable<s:property value='#tab.count'/>" class="table table-condensed table-hover table-striped">
 								<thead>
 									<tr class="<s:property value='#fondoRuta'/>">
-										<td colspan="3" align="center">
+										<td colspan="7" align="center">
 											<b>Zona <s:property value="#tab.count"/></b>
 										</td>
 									</tr>
