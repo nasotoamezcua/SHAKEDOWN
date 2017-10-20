@@ -19,7 +19,6 @@ import lombok.extern.slf4j.Slf4j;
  * @Namespace solo se declara a nivel de clase.
 */
 @Slf4j
-//@Component("eventosActionBean")
 @Namespace(value = "/eventos")
 @Action(value = "eventosAction", 
 	results = {@Result(name = "success", location = "/WEB-INF/views/jsp/index.jsp")
