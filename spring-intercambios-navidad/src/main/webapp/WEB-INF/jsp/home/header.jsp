@@ -54,6 +54,12 @@
 			          			</a></li>
 			        	</ul>
 			    </li>
+				<li>
+					<a href='<c:url value="/root" />' title="Home">
+						<span class="glyphicon glyphicon-eye-open"></span>
+						Administrador
+					</a>
+				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 		      <li class="dropdown">

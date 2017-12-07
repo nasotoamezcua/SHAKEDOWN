@@ -27,5 +27,10 @@ public class LoginControler {
 		
 		return "login/login";
 	}
-
+	
+	@RequestMapping(value = "/access-denied", method = RequestMethod.GET)
+	public String accessDenied() {
+		
+		return "error/403";
+	}
 }

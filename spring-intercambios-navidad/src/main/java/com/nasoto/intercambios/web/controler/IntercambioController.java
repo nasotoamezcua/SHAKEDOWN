@@ -119,6 +119,7 @@ public class IntercambioController {
 		lista.add("<span class=\"glyphicon glyphicon-chevron-right\"></span> Registra por lo menos un Intercambio.");
 		lista.add("<strong> <span class=\"glyphicon glyphicon-chevron-right\"></span> Para cargar una imagen,  es obligatorio ingresar la opci&oacute;n del Intercambio.</strong> ");
 		lista.add("<span class=\"glyphicon glyphicon-chevron-right\"></span> Solo se permite cargar im&aacute;genes con formato:   <strong>jpg, png, gif, bmp</strong> ");
+		lista.add("<strong> <span class=\"glyphicon glyphicon-chevron-right\"></span> La imagen a cargar no puede exceder de 5MB.</strong> ");
 		lista.add("<strong> <span class=\"glyphicon glyphicon-chevron-right\"></span> No es obligatorio cargar una imagen  por cada opci&oacute;n  de Intercambio.</strong> ");
 		lista.add("</br><strong><span class=\"glyphicon glyphicon-exclamation-sign\"></span> Nota: Los intercambios una vez registrados no puden ser modificados.</strong> ");
 		
@@ -134,8 +135,8 @@ public class IntercambioController {
 		if(newInter.getIntercambiosForms() != null && newInter.getIntercambiosForms().size()>0) {
 			list = new ArrayList<IntercambioForm>();
 			// Comentar cuando este en produccion
-			//String path = "C:/Documents and Settings/vngae40/workspace-sts/spring-intercambios-navidad/src/main/webapp/resources/img/intercambios/" +usuCap + "/";
-			String path = context.getRealPath("/resources/img/intercambios/" +usuCap + "/");
+			String path = "C:/Documents and Settings/vngae40/workspace-sts/spring-intercambios-navidad/src/main/webapp/resources/img/intercambios/" +usuCap + "/";
+			//String path = context.getRealPath("/resources/img/intercambios/" +usuCap + "/");
 			log.info("path --->: {}", path);
 			File carpeta = new File(path);
 			carpeta.mkdir();

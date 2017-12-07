@@ -13,7 +13,7 @@
 	<c:choose>
 		<c:when test="${not empty errorMessage}">
 			<c:set value="login-panel panel panel-danger" var="panel"/>
-			<c:set value="${errorMessage}" var="title"/>
+			<c:set value=" ${errorMessage}" var="title"/>
 		</c:when>
 		<c:otherwise>
 			<c:set value="login-panel panel panel-primary" var="panel"/>
@@ -26,7 +26,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="${panel}">
                     <div class="panel-heading">
-                        <h3 class="panel-title">${title}</h3>
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-tree-conifer"></span> ${title}</h3>
                     </div>
                     <div class="imgcontainer">
     					<img src="<c:url value="/resources/img/avatares/img_avatar2.png"/>" alt="Avatar" class="avatar" />
@@ -39,9 +39,9 @@
                                     <input class="form-control" placeholder="Usuario" name="j_username" autofocus="true" />
                                 </div>
                                 <br>
-                                <div class="input-group">
-                                	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input class="form-control" placeholder="Password" name="j_password" type="password" value="" />
+                                <div class="input-group">	
+                      				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                         			<input class="form-control" placeholder="Password" name="j_password" type="password" value="" />
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -63,5 +63,6 @@
     </div>
 	<jsp:include page="../home/footer.jsp"/>
 	<jsp:include page="../home/scriptsjs.jsp"/>
+	
 </body>
 </html>

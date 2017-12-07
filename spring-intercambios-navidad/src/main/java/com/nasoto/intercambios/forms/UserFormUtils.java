@@ -72,6 +72,7 @@ public class UserFormUtils {
 		usuarioService.update(usuarioUpdate);
 	}
 	
+	
 	public UserForm getUserForm(String usuario){
 		
 		Usuario u = usuarioService.findByUserNameService(usuario);
@@ -110,5 +111,4 @@ public class UserFormUtils {
 		
 		return userForms;
 	}
-	
 }

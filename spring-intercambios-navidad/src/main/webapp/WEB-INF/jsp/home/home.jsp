@@ -25,6 +25,18 @@
 						Lista de Usuarios.
 					</div>
 					<div class="panel-body">
+						<div class="alert alert-success alert-dismissable fade in">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<strong><span class="glyphicon glyphicon-info-sign"></span> Informaci&oacute;n:</strong>
+							<br>
+							<span class="glyphicon glyphicon-chevron-right"></span> Cantidad: <span class="glyphicon glyphicon-usd"></span> <strong>500.00 pesos.</strong>
+							<br>
+							<span class="glyphicon glyphicon-chevron-right"></span> Fecha de Intercambio: <strong>22-Diciembre-2017</strong>
+							<br>
+							<span class="glyphicon glyphicon-chevron-right"></span> Horario: <strong>10:00 AM - 05:00 PM</strong>
+							<br>
+						</div>
+					
 						<div class="table-responsive">
 							<table class="table table-condensed">
 								<tr>
@@ -80,7 +92,7 @@
 														<div class="panel panel-success">
 															<div class="panel-heading">
 																<span class="glyphicon glyphicon-gift"></span> 
-																Lista de Intercambios: 
+																${userform.user} ::: Lista de Intercambios: 
 																<span class="badge">${fn:length(userform.intercambios)}</span>
 															</div>
 														</div>
@@ -103,7 +115,7 @@
 																						<span class="glyphicon glyphicon-ban-circle"></span>
 																					</c:when>
 																					<c:otherwise>
-																						<c:url value="/resources/img/intercambios/${usuCap}/${intercambio.img}" var="imgLink"></c:url>
+																						<c:url value="/resources/img/intercambios/${userform.user}/${intercambio.img}" var="imgLink"></c:url>
 																						<a href="${imgLink}" target="_blank" title="Imagen" data-toggle="popover" data-placement="right"
 																							data-trigger="hover" data-content="${intercambio.img}" class="btn btn-success btn-sl">
 																							<span class="glyphicon glyphicon-picture"></span>

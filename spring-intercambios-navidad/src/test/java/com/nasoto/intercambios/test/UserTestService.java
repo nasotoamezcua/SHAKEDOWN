@@ -45,6 +45,26 @@ public class UserTestService {
 		Assert.assertNotNull(intercambiosService);
 	}
 	
+	
+	@Test
+	public void deleteUserTest() {
+		
+		Usuario usuarioDelete = usuarioService.findById(3L);
+		log.info("usuarioDelete : {} {}", usuarioDelete, System.identityHashCode(usuarioDelete));
+		
+		usuarioService.detach(usuarioDelete);
+		
+		log.info("usuarioDelete (deleted) : {} {}", usuarioDelete, System.identityHashCode(usuarioDelete));
+		
+		Usuario usuario = usuarioService.findById(usuarioDelete.getId());
+		
+		Assert.assertNull(usuario);
+		
+		log.info("usuario : {} {}", usuario, System.identityHashCode(usuario));
+		
+		
+	}
+	
 	@Test
 	public void createUserTest() {
 		log.info("createUserTest -------------------");

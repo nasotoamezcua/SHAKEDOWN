@@ -22,7 +22,7 @@
 			<div class="col-md-offset-1 col-md-10 col-md-offset-1">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						<span class="glyphicon glyphicon-plus"></span>
+						<span class="glyphicon glyphicon-floppy-saved"></span>
 						Agregar Intercambio.
 					</div>
 					<div class="panel-body">

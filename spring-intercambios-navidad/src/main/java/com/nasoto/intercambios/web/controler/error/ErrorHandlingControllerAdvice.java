@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.nasoto.intercambios.web.controler.AdminController;
 import com.nasoto.intercambios.web.controler.CuentaControler;
 import com.nasoto.intercambios.web.controler.HomeControler;
 import com.nasoto.intercambios.web.controler.IntercambioController;
@@ -14,7 +15,7 @@ import com.nasoto.intercambios.web.controler.RegistrarController;
 
 
 @ControllerAdvice(assignableTypes = {LoginControler.class, RegistrarController.class,
-		CuentaControler.class, HomeControler.class, IntercambioController.class  })
+		CuentaControler.class, HomeControler.class, IntercambioController.class, AdminController.class  })
 public class ErrorHandlingControllerAdvice {
 	
 	@ExceptionHandler(Exception.class)
@@ -25,7 +26,7 @@ public class ErrorHandlingControllerAdvice {
 		
 		RestResponseError rre = new RestResponseError(HttpStatus.BAD_REQUEST, re.getMessage(), re.getClass().getSimpleName());
 		model.addObject("rre", rre);
-		model.setViewName("error/403");
+		model.setViewName("error/error");
 		
 		return model;
 		
