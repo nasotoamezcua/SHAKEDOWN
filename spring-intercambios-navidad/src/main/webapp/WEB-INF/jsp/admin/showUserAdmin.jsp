@@ -64,8 +64,18 @@
 												<td>${userform.password}</td>
 												<td>${userform.mail}</td>
 												<td>
-													<span class="glyphicon glyphicon-gift"></span>
-													<span class="badge">${fn:length(userform.intercambios)}</span>
+													<c:choose>
+														<c:when test="${fn:length(userform.intercambios) gt 0}">
+															<span class="label label-info">
+																<span class="glyphicon glyphicon-gift"></span>
+																<span class="badge">${fn:length(userform.intercambios)}</span>
+															</span>
+														</c:when>
+														<c:otherwise>
+															<span class="glyphicon glyphicon-gift"></span>
+																<span class="badge">${fn:length(userform.intercambios)}</span>
+														</c:otherwise>
+													</c:choose>
 												</td>
 												<td>
 													<div class="text-left">
