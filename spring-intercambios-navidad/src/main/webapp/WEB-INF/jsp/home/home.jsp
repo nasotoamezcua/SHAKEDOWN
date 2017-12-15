@@ -35,6 +35,8 @@
 							<br>
 							<span class="glyphicon glyphicon-chevron-right"></span> Horario: <strong>10:00 AM - 05:00 PM</strong>
 							<br>
+							<span class="glyphicon glyphicon-chevron-right"></span> <strong> Fecha Limite para Registrar Intercambios: 15/12/2017</strong>
+							<br>
 						</div>
 					
 						<div class="table-responsive">

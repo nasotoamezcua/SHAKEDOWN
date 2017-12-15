@@ -1,5 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+
+<jsp:useBean id="date" class="java.util.Date" />
+<fmt:formatDate var="now" value="${date}" pattern="yyyy-MM-dd"/>
+<c:set var="dateLimit" value="2017-12-18"/>
+
 <nav class="navbar navbar-custom navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -47,10 +53,10 @@
 			          				<span class="badge">${userIntercambios}</span>
 			          			</a>
 			          		</li>
-			          		<li>
-			          			<a href='<c:url value="/intercambio"/>'>
+			          		<li class="${now lt dateLimit ? '' : 'disabled'}">
+			          			<a href="${now lt dateLimit ? '/spring-intercambios-navidad/intercambio' : '#'}">
 			          			<span class="glyphicon glyphicon-floppy-saved"></span>
-			          				Agregar Intercambio
+			          				Agregar Intercambio 
 			          			</a></li>
 			        	</ul>
 			    </li>

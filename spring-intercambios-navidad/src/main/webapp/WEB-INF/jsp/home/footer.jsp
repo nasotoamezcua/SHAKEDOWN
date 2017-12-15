@@ -13,7 +13,7 @@
 		</p>
 		<p class="text-muted">
 			<span class="glyphicon glyphicon-leaf"></span>
-			Java SE 8 + Java EE 7 + Spring 4 + Spring MVC 4 + Spring Security 3 + Hibernate 4 + Bootstrap 3 + Tomcat 8
+			Java SE 8 + Java EE 7 + Spring 4 + Spring MVC 4 + Spring Security 3 + Hibernate 4 + MySQL 5 + Bootstrap 3 + Tomcat 8
 			<span class="glyphicon glyphicon-leaf"></span>
 		</p>
 	</div>
