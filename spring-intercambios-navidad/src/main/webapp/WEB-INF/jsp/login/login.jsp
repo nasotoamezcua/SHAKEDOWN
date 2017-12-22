@@ -51,7 +51,8 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <input type="submit" value="Ingresar" class="btn btn-lg btn-primary btn-block" />
-                                <a href='<c:url value="/registrar"/>' class="btn btn-lg btn-success btn-block">Registar</a>
+                                <a href="${now lt dateLimit ? '/spring-intercambios-navidad/registrar' : '#'}" 
+                                	class="btn btn-lg btn-success btn-block ${now lt dateLimit ? '' : 'disabled'}">Registar</a>
                                 
                             </fieldset>
                         </form>
