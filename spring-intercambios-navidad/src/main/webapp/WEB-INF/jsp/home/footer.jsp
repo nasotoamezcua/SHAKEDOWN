@@ -1,8 +1,11 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<jsp:useBean id="dateFooter" class="java.util.Date" />
+<fmt:formatDate var="nowFooter" value="${dateFooter}" pattern="yyyy"/>
 <footer class="footer">
 	<div class="container">
 		<p class="text-muted">
 			<span class="glyphicon glyphicon-gift"></span> 
-			Sistema Intercambios Navidad V3+ :: &copy; 2017 
+			Sistema Intercambios Navidad V3+ :: &copy; ${nowFooter} 
 			<a href="mailto:nasotoamezcua@gmail.com" 
 				title="Nestor Alejandro Soto Amezcua" 
 				data-toggle="popover" data-trigger="hover" 

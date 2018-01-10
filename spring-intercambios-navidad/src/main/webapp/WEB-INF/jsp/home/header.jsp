@@ -2,16 +2,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 
+<%-- 
 <jsp:useBean id="date" class="java.util.Date" />
 <fmt:formatDate var="now" value="${date}" pattern="yyyy-MM-dd"/>
 <c:set var="dateLimit" value="2017-12-18"/>
+--%>
 
 <nav class="navbar navbar-custom navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">
 				<span class="glyphicon glyphicon-gift"></span>
-				Navidad app
+				Navidad app ${nowFooter}
 			</a>
 		</div>
 		<security:authorize access="isAnonymous()">
@@ -53,18 +55,34 @@
 			          				<span class="badge">${userIntercambios}</span>
 			          			</a>
 			          		</li>
-			          		<li class="${now lt dateLimit ? '' : 'disabled'}">
-			          			<a href="${now lt dateLimit ? '/spring-intercambios-navidad/intercambio' : '#'}">
+			          		<li class="${regIntercambioBlock.active eq 0 ? '' : 'disabled'}">
+			          			<a href="${regIntercambioBlock.active eq 0 ? '/spring-intercambios-navidad/intercambio' : '#'}">
 			          			<span class="glyphicon glyphicon-floppy-saved"></span>
 			          				Agregar Intercambio 
 			          			</a></li>
 			        	</ul>
 			    </li>
-				<li>
-					<a href='<c:url value="/root" />' title="Home">
-						<span class="glyphicon glyphicon-eye-open"></span>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<span class="glyphicon glyphicon-lock"></span>
 						Administrador
+						<span class="caret"></span>
 					</a>
+						<ul class="dropdown-menu">
+			          		<li>
+			          			<a href='<c:url value="/root"/>'>
+			          				<span class="glyphicon glyphicon-user"></span>
+			          				Usuarios
+			          			</a>
+			          		</li>
+			          		<li>
+			          			<a href='<c:url value="/root/blocks"/>'>
+			          				<span class="glyphicon glyphicon-eye-open"></span>
+			          				Bloqueos
+			          			</a>
+			          		</li>
+			          		
+			        	</ul>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

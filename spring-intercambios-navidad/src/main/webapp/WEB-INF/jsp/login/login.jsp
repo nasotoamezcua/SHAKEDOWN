@@ -51,8 +51,8 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <input type="submit" value="Ingresar" class="btn btn-lg btn-primary btn-block" />
-                                <a href="${now lt dateLimit ? '/spring-intercambios-navidad/registrar' : '#'}" 
-                                	class="btn btn-lg btn-success btn-block ${now lt dateLimit ? '' : 'disabled'}">Registar</a>
+                                <a href="${regUserBlock.active eq 1 ? '/spring-intercambios-navidad/registrar' : '#'}" 
+                                	class="btn btn-lg btn-success btn-block ${regUserBlock.active lt 1 ? '' : 'disabled'}">Registar</a>
                                 
                             </fieldset>
                         </form>

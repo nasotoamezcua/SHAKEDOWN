@@ -1,8 +1,8 @@
 var fallObjects=new Array();function newObject(url,height,width){fallObjects[fallObjects.length]=new Array(url,height,width);}
 
 var numObjs=20, waft=50, fallSpeed=10, wind=0;
-newObject("http://2.bp.blogspot.com/--fII5xz-9vY/UM-djWHHwgI/AAAAAAAABrI/tEKS6_ctv_k/s400/nieve2_jessi_diyva.png",22,22);
-newObject("http://3.bp.blogspot.com/-DPHwVIctTlg/UM-di9jKOiI/AAAAAAAABq8/wV567ynxL2U/s400/nieve1_jessi_diyva.png",22,22);
+newObject("/spring-intercambios-navidad/resources/img/navidad/nieve2.png",22,22);
+newObject("/spring-intercambios-navidad/resources/img/navidad/nieve1.png",22,22);
 //newObject("https://raw.githubusercontent.com/nasotoamezcua/SHAKEDOWN/nestor/perry.png",22,22);
 
 

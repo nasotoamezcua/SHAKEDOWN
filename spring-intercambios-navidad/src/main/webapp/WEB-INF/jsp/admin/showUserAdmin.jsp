@@ -7,7 +7,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<jsp:include page="../home/scriptsandcss.jsp"/>
-	<title>NAVIDAD ::: ADMIN</title>
+	<title>NAVIDAD ::: ADMIN - USUARIOS</title>
 	
 </head>
 <body>
@@ -96,6 +96,9 @@
 									</c:otherwise>
 								</c:choose>
 							</table>
+							<div class="text-center">
+								<a href='<c:url value="/welcome"/>' class="btn btn-sm btn-success">OK</a>
+							</div>
 						</div>
 					</div>
 				</div>

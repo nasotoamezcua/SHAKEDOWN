@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.nasoto.intercambios.forms.AdminFormUtils;
 import com.nasoto.intercambios.forms.UserFormUtils;
 import com.nasoto.intercambios.service.api.IUsuarioService;
 
@@ -22,6 +23,9 @@ public class AdminController {
 	
 	@Autowired
 	private IUsuarioService userService;
+	
+	@Autowired
+	private AdminFormUtils adminUtils;
 	
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String showUsersAdmin(Model model) {
@@ -39,6 +43,30 @@ public class AdminController {
 		userService.delete(idUser);
 		
 		return "redirect:/root";
+	}
+	
+	@RequestMapping(value = "/blocks", method = RequestMethod.GET)
+	public String block(Model model) {
+		
+		model.addAttribute("listBlocks", adminUtils.findAllBlocks());
+		
+		return "admin/showBlock";
+	}
+	
+	@RequestMapping(value = "/blocks/desactive/{id}", method = RequestMethod.GET)
+	public String blockActive(@PathVariable("id")Long idBlock) {
+		
+		adminUtils.blockActiveAdmin(idBlock);
+		
+		return "redirect:/root/blocks";
+	}
+	
+	@RequestMapping(value = "blocks/active/{id}", method = RequestMethod.GET)
+	public String blockInActive(@PathVariable("id")Long idBlock) {
+		
+		adminUtils.blockInactiveAdmin(idBlock);;
+		
+		return "redirect:/root/blocks";
 	}
 
 }

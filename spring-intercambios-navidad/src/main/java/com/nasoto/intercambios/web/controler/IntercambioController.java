@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.nasoto.intercambios.entities.Intercambios;
+import com.nasoto.intercambios.forms.AdminFormUtils;
 import com.nasoto.intercambios.forms.IntercambioForm;
 import com.nasoto.intercambios.forms.IntercambioFormUtils;
 import com.nasoto.intercambios.forms.IntercambiosForm;
@@ -34,7 +35,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 @RequestMapping("/intercambio")
-@SessionAttributes({"intercambios","sizeInterReg","userIntercambios"})
+@SessionAttributes({"intercambios","sizeInterReg","userIntercambios,regIntercambioBlock"})
 public class IntercambioController {
 	
 	@Autowired
@@ -48,6 +49,9 @@ public class IntercambioController {
 	
 	@Autowired
 	private Validator intercambiosFormValidator;
+	
+	@Autowired
+	private AdminFormUtils adminUtils;
 	
 	@InitBinder("newInter")
 	protected void initinterCambiosFormValidator(WebDataBinder binder) {
@@ -101,6 +105,9 @@ public class IntercambioController {
 		
 		model.addAttribute("userIntercambios", userIntercambios);
 		
+		//VALIDAR SI EL REGISTRO DE INTERCAMBIOS ESTA RESTRINGIDO
+		model.addAttribute("regIntercambioBlock", adminUtils.findIdBlocks(1L));
+		
 		return "intercambio/showIntercambiosReg";
 	}
 	
@@ -137,8 +144,9 @@ public class IntercambioController {
 		if(newInter.getIntercambiosForms() != null && newInter.getIntercambiosForms().size()>0) {
 			list = new ArrayList<IntercambioForm>();
 			// Comentar cuando este en produccion
-			String path = "C:/Documents and Settings/vngae40/workspace-sts/spring-intercambios-navidad/src/main/webapp/resources/img/intercambios/" +usuCap + "/";
-			//String path = context.getRealPath("/resources/img/intercambios/" +usuCap + "/");
+			//String path = "C:/Documents and Settings/vngae40/workspace-sts/spring-intercambios-navidad/src/main/webapp/resources/img/intercambios/" +usuCap + "/";
+			// Descomentar cuando este en produccion
+			String path = context.getRealPath("/resources/img/intercambios/" +usuCap + "/");
 			log.info("path --->: {}", path);
 			File carpeta = new File(path);
 			carpeta.mkdir();

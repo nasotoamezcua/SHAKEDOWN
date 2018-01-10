@@ -5,12 +5,15 @@
 <link rel="shortcut icon" href="<c:url value="/resources/img/favicon/copoNieve.ico"/>" type="image/x-icon">
 <link rel="icon" href="<c:url value="/resources/img/favicon/copoNieve.ico"/>" type="image/x-icon">
 
-<!-- Bootstrap y barra customizada -->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="<c:url value="/resources/vendor/bootstrap/css/bootstrapCustomer.css"/>" rel="stylesheet" type="text/css" />
+<!-- Bootstrap WEB 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.css" rel="stylesheet"> -->
 
-<!-- Bootstrap Core CSS 
-<link href='<s:url value="/resources/vendor/bootstrap/css/bootstrap.min.css"/>' rel="stylesheet" type="text/css" /> -->
+<!-- Bootstrap -->
+<link href='<c:url value="/resources/vendor/bootstrap/css/bootstrap.css"/>' rel="stylesheet" type="text/css" />
+<!-- Bootstrap min -->
+<link href='<c:url value="/resources/vendor/bootstrap/css/bootstrap.min.css"/>' rel="stylesheet" type="text/css" />
+<!-- Bootstrap Customer Barra Customizada -->
+<link href="<c:url value="/resources/vendor/bootstrap/css/bootstrapCustomer.css"/>" rel="stylesheet" type="text/css" />
 <!-- MetisMenu CSS -->
 <link href="<c:url value="/resources/vendor/metisMenu/metisMenu.min.css"/>" rel="stylesheet" type="text/css" /> 
 <!-- Custom CSS -->
@@ -42,4 +45,5 @@
 		    height: 50px;
 		    border-radius: 30%;
 		}
+		
 </style>

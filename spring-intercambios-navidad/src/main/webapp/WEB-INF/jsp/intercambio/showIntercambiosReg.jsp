@@ -81,8 +81,8 @@
 						</div>
 						<div class="text-center">
 							<a href='<c:url value="/welcome"/>' class="btn btn-sm btn-primary">OK</a>
-							<a href="${now lt dateLimit ? '/spring-intercambios-navidad/intercambio' : '#'}" 
-								class="btn btn-sm btn-success ${now lt dateLimit ? '' : 'disabled'}">Registar Intercambio</a>
+							<a href="${regIntercambioBlock.active eq 0 ? '/spring-intercambios-navidad/intercambio' : '#'}" 
+								class="btn btn-sm btn-success ${regIntercambioBlock.active eq 0 ? '' : 'disabled'}">Registar Intercambio</a>
 						</div>
 					</div>
 				</div>
